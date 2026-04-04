@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
 
   before_action :ensure_authorized
 
+  def index
+    @rooms = Tado::Api::Rooms.get
+  end
+
   def ensure_authorized
     auth = Tado::Auth.new
     return unless auth.token.nil?

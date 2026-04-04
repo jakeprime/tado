@@ -1,0 +1,7 @@
+Hello Tado
+
+<ul>
+  <% @rooms.each do |room| %>
+    <li><%= room['name'] %> (<%= room['sensorDataPoints']['insideTemperature']['value'] %>)</li>
+  <% end %>
+</ul>
