@@ -11,11 +11,4 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "application#index"
-
-  resources :rooms, only: [] do
-    member do
-      put :set_temperature
-      patch :set_temperature
-    end
-  end
 end
