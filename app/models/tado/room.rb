@@ -1,5 +1,7 @@
 module Tado
   class Room
+    include ActiveModel::Model
+
     def self.raw
       Tado::Api::Rooms.list
     end
@@ -22,12 +24,8 @@ module Tado
     end
 
     def target_temperature=(value)
-      @target_temperature = value
+      @target_temperature = value.to_f
       Tado::Api::Rooms.set_target_temperature(self)
-    end
-
-    def to_partial_path
-      "rooms/room"
     end
   end
 end
