@@ -1,1 +1,14 @@
-<li><%= room.name %> (<%= room.current_temperature %>)</li>
+<li>
+  <%= room.id %>: <%= room.name %> (<%= room.current_temperature %>)<br />
+  <%= link_to(
+    "Lower",
+    set_temperature_room_path(room.id, value: room.target_temperature - 0.5),
+    data: { turbo_method: :put },
+  ) %>
+  <%= room.target_temperature %>
+  <%= link_to(
+    "Raise",
+    set_temperature_room_path(room.id, value: room.target_temperature + 0.5),
+    data: { turbo_method: :put },
+  ) %>
+</li>
