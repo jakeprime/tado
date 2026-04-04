@@ -10,13 +10,17 @@ module Tado
       def self.set_target_temperature(room)
         power = room.power ? :ON : :OFF
         temperature = { value: room.tado_target_temperature } if room.power
+        termination = {
+          type: room.termination_type,
+          durationInSeconds: room.termination_seconds_from_now,
+        }.compact
 
         payload = {
           setting: {
             power:,
             temperature:,
           },
-          termination: { type: :NEXT_TIME_BLOCK },
+          termination:,
         }
 
         new.client.post(

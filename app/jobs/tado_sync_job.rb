@@ -15,6 +15,7 @@ class TadoSyncJob < ApplicationJob
       room.current_temperature = tado_room.current_temperature
       room.tado_target_temperature = tado_room.target_temperature
       room.power = tado_room.power == "ON"
+      room.termination = tado_room.termination.to_json
 
       if tado_room.power == "OFF"
         room.target_temperature = 0.0 # < 5 is not valid, but we'll use 0 to indicate OFF
