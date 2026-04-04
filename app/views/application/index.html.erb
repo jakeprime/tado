@@ -1,7 +1,5 @@
 Hello Tado
 
 <ul>
-  <% @rooms.each do |room| %>
-    <li><%= room.name %> (<%= room.current_temperature %>)</li>
-  <% end %>
+  <%= render @rooms %>
 </ul>

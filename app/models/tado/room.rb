@@ -14,5 +14,9 @@ module Tado
       @name = raw["name"]
       @current_temperature = raw.dig(*%w[sensorDataPoints insideTemperature value])
     end
+
+    def to_partial_path
+      "rooms/room"
+    end
   end
 end
