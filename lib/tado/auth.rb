@@ -17,7 +17,7 @@ module Tado
       )
 
       if token.expired?
-        token.refresh!
+        token = token.refresh!
         Tado::Token.persist(token)
       end
 
