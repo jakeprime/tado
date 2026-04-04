@@ -1,8 +1,7 @@
-<li id="<%= dom_id(room) %>">
-  <%= room.id %>: <%= room.name %><br />
-  Room temp: <%= room.current_temperature %><br />
-  Tado temp: <%= room.tado_target_temperature %><br />
-  Power: <%= room.power %> <br />
-
-  <strong><%= room.target_temperature %></strong>
+<li id="<%= dom_id(room) %>" class="room <%= room.power ? "room-on" : "room-off" %>">
+  <div class="room-name"><%= room.name %></div>
+  <div class="room-temperature"><%= room.current_temperature.round(1) %></div>
+  <div class="room-target">
+    👉 <%= room.target_temperature %>
+  </div>
 </li>

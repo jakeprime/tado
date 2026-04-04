@@ -8,3 +8,55 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+body {
+    background-color: #0F2B34;
+    color: #BBA0CA;
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    font-size: 14px;
+}
+
+.rooms {
+    left-margin: 0;
+    padding: 10px;
+    text-align: center;
+}
+
+.room {
+    display: inline-block;
+    background: #492747;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 4px;
+    width: 100px;
+    border: solid 1px #BCD8C1;
+}
+
+.room-off {
+    opacity: 0.5;
+}
+
+.room-name {
+    font-weight: 300;
+    font-size: 24px;
+    width: 100%;
+    text-align: center;
+    margin: 6px 0;
+}
+
+.room-temperature {
+    font-weight: 600;
+    font-size: 48px;
+    text-align: center;
+    width: 100%;
+}
+
+.room-target {
+    width: 100%;
+    text-align: center;
+    font-weight: 200;
+}
