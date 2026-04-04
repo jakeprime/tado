@@ -1,4 +1,6 @@
 class TadoSyncJob < ApplicationJob
+  include ActionView::RecordIdentifier
+
   queue_as :default
 
   def perform
@@ -27,5 +29,14 @@ class TadoSyncJob < ApplicationJob
     end
 
     Tado::Api::Rooms.update_temperatures(Room.all)
+
+    Room.all.each do |room|
+      Turbo::StreamsChannel.broadcast_replace_to(
+        "rooms",
+        target: dom_id(room),
+        partial: "rooms/room",
+        locals: { room: },
+      )
+    end
   end
 end
