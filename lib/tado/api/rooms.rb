@@ -19,7 +19,7 @@ module Tado
         }
 
         new.client.post(
-          "/homes/2123312/rooms/#{room.id}/manualControl",
+          "/homes/2123312/rooms/#{room.tado_id}/manualControl",
           headers: { "Content-Type" => "application/json" },
           body: payload.to_json,
         )

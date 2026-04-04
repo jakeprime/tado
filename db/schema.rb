@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_03_152601) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_04_125717) do
+  create_table "rooms", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.float "current_temperature"
+    t.string "name"
+    t.integer "tado_id"
+    t.float "target_temperature"
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tado_tokens", force: :cascade do |t|
     t.string "access_token"
     t.datetime "created_at", null: false

@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   before_action :ensure_authorized
 
   def index
-    @rooms = Tado::Room.all
+    @rooms = Room.all
   end
 
   def ensure_authorized
