@@ -1,5 +1,9 @@
 <li id="<%= dom_id(room) %>">
-  <%= room.id %>: <%= room.name %> (<%= room.current_temperature %>)<br />
+  <%= room.id %>: <%= room.name %><br />
+  Room temp: <%= room.current_temperature %><br />
+  Tado temp: <%= room.tado_target_temperature %><br />
+  Power: <%= room.power %> <br />
+
   <%= link_to(
     "Lower",
     set_temperature_room_path(room.id, value: room.target_temperature - 0.5),

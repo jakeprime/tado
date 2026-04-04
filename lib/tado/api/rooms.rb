@@ -9,7 +9,7 @@ module Tado
 
       def self.set_target_temperature(room)
         power = room.power ? :ON : :OFF
-        temperature = { value: 30.0 } if room.power
+        temperature = { value: room.tado_target_temperature } if room.power
 
         payload = {
           setting: {
@@ -28,8 +28,13 @@ module Tado
 
       def self.update_temperatures(rooms)
         rooms.each do |room|
-          room.power = room.target_temperature > room.current_temperature
-          next unless room.power_changed?
+          if room.target_temperature == 0.0
+            room.power = false
+          else
+            room.power = true
+            room.tado_target_temperature = room.target_temperature > room.current_temperature ? 30.0 : 5.0
+          end
+          next unless room.power_changed? || room.tado_target_temperature_changed?
 
           room.save
           set_target_temperature(room)

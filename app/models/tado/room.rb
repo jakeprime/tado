@@ -14,12 +14,13 @@ module Tado
       all.find { it.id == id.to_i }
     end
 
-    attr_reader :id, :name, :current_temperature, :target_temperature
+    attr_reader :id, :name, :current_temperature, :target_temperature, :power
 
     def initialize(raw)
       @id = raw["id"]
       @name = raw["name"]
       @current_temperature = raw.dig(*%w[sensorDataPoints insideTemperature value])
+      @power = raw.dig(*%w[setting power])
       @target_temperature = raw.dig(*%w[setting temperature value]) || 5
     end
 
