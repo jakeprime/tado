@@ -15,5 +15,7 @@ class TadoSyncJob < ApplicationJob
         current_temperature: tado_room.current_temperature,
       )
     end
+
+    Tado::Api::Rooms.update_temperatures(Room.all)
   end
 end
