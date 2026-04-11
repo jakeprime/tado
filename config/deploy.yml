@@ -7,7 +7,7 @@ image: tado
 # Deploy to these servers.
 servers:
   web:
-    - 213.165.90.87
+    - 77.68.52.146
   # job:
   #   hosts:
   #     - 192.168.0.1
